@@ -7,6 +7,11 @@
     //consulta ao banco de dados
     $produtos = "SELECT produtoID, nomeproduto, tempoentrega, precounitario, imagempequena ";
     $produtos .= " FROM produtos ";
+    // usei o LIKE para nao precisar digitar o nome inteiro do produto na hr de pesquisar
+    if ( isset($_GET["produto"])) {
+    $nome_produto = $_GET["produto"];
+    $produtos .= " WHERE nomeproduto LIKE '%{$nome_produto}%' ";
+    }
     $resultado = mysqli_query($conecta,$produtos);
     if (!$resultado) {
         die("Falha na consulta ao banco de dados");
@@ -23,6 +28,7 @@
         <!-- estilo -->
         <link href="_css/estilo.css" rel="stylesheet">
         <link href="_css/produtos.css" rel="stylesheet">
+        <link href="_css/produto_pesquisa.css" rel="stylesheet">
     </head>
 
     <body>
@@ -30,6 +36,12 @@
         <?php include_once("../_incluir/funcoes.php"); ?>
         
         <main>
+            <div id="janela_pesquisa">
+                <form action="listagem.php" method="get">
+                    <input type="text" name="produto" placeholder="Nome do produto">
+                    <input type="image" name="pesquisa" src="../_assets/botao_search.png">   
+            </div>
+
             <div id="listagem_produtos">  
             <?php
                 while($linha = mysqli_fetch_assoc($resultado)) {     

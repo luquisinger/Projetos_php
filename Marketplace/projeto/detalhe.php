@@ -41,6 +41,7 @@
         <!-- estilo -->
         <link href="_css/estilo.css" rel="stylesheet">
         <link href="_css/produto_detalhe.css" rel="stylesheet">
+        
     </head>
 
     <body>
