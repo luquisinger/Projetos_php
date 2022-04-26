@@ -1,6 +1,14 @@
 <?php require_once("../conexao/conexao.php"); ?>
 
 <?php
+    //iniciar variavel de sessao
+    session_start();
+    
+    //protecao de acesso sem o login
+    if ( !isset($_SESSION["user_portal"])) {
+        header("location:login.php");
+    }
+
     // Determinar localidade BR
     setlocale(LC_ALL, 'pt_BR');
 
@@ -23,7 +31,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Integração de PHP com MySQL</title>
+        <title>ANDES</title>
         
         <!-- estilo -->
         <link href="_css/estilo.css" rel="stylesheet">
