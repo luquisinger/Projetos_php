@@ -4,7 +4,11 @@
 <?php
 
     if(isset ($_POST["enviar"]))    {
-        $mensagem = uploadArquivo($_FILES["upload_file"], "uploads");
+        $resposta= uploadArquivo($_FILES["upload_file"], "images/product_images");
+        print_r($resposta);
+
+        $mensagem = $resposta[0];
+        $nome_arquivo = $resposta[1];
     } 
 ?>
 <!doctype html>
