@@ -18,7 +18,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Curso PHP Integração com MySQL</title>
+        <title>Marketplace</title>
         
         <!-- estilo -->
         <link href="_css/estilo.css" rel="stylesheet">
